@@ -1,0 +1,3 @@
+<resources>
+    <string name="marvel_endpoint">http://gateway.marvel.com/</string>
+</resources>
