@@ -25,14 +25,12 @@ public class CharactersFragment extends BaseFragment implements CharactersContra
 
     public static final String FRAGMENT_TAG = CharactersFragment.class.getName();
 
+    private static final int NUM_ITEMS_BEFORE_PAGE_LOAD = 2;
+
     public static CharactersFragment newInstance() {
         return new CharactersFragment();
     }
 
-    @BindView(R.id.fragment_character_loading_container)
-    View loadingContainer;
-    @BindView(R.id.fragment_character_recycler_view_container)
-    View listContainer;
     @BindView(R.id.fragment_character_recycler_view)
     RecyclerView recyclerView;
 
@@ -49,8 +47,19 @@ public class CharactersFragment extends BaseFragment implements CharactersContra
     }
 
     private void init() {
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                int lastVisible = layoutManager.findLastVisibleItemPosition();
+                if (lastVisible > adapter.getItemCount() - NUM_ITEMS_BEFORE_PAGE_LOAD) {
+                    presenter.loadCharacters();
+                }
+            }
+        });
+        adapter = new CharactersAdapter();
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -65,19 +74,7 @@ public class CharactersFragment extends BaseFragment implements CharactersContra
     }
 
     @Override
-    public void showLoading(boolean showLoading) {
-        if (showLoading) {
-            listContainer.setVisibility(View.GONE);
-            loadingContainer.setVisibility(View.VISIBLE);
-        } else {
-            listContainer.setVisibility(View.VISIBLE);
-            loadingContainer.setVisibility(View.GONE);
-        }
-    }
-
-    @Override
-    public void populateCharacters(List<Character> characters) {
-        adapter = new CharactersAdapter(characters);
-        recyclerView.setAdapter(adapter);
+    public void populateCharacters(List<Character> characters, int total) {
+        adapter.addCharacters(characters, total);
     }
 }

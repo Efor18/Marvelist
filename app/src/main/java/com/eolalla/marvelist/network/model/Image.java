@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Image {
 
+    public static final String LANDSCAPE_INCREDIBLE = "/landscape_incredible.jpg";
+
     @SerializedName("path")
     private String path;
     @SerializedName("extension")
