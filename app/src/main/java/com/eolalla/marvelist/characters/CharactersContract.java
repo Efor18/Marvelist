@@ -13,11 +13,11 @@ import java.util.List;
 public interface CharactersContract {
 
     interface View extends BaseView<Presenter> {
-        void showLoading(boolean showLoading);
 
-        void populateCharacters(List<Character> characters);
+        void populateCharacters(List<Character> characters, int total);
     }
 
     interface Presenter extends BasePresenter {
+        void loadCharacters();
     }
 }
