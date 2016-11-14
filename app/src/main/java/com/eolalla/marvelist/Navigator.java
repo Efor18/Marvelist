@@ -1,14 +1,11 @@
 package com.eolalla.marvelist;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
 import com.eolalla.marvelist.characters.CharactersFragment;
-import com.eolalla.marvelist.network.ApiServiceProvider;
 import com.eolalla.marvelist.characters.CharactersPresenter;
-
-import javax.inject.Inject;
+import com.eolalla.marvelist.network.ApiServiceProvider;
 
 /**
  * Created by Ernesto Olalla on 2/11/16.

@@ -4,9 +4,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
 import com.eolalla.marvelist.Navigator;
+import com.eolalla.marvelist.injection.scope.ActivityScope;
 import com.eolalla.marvelist.network.ApiServiceProvider;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -31,7 +30,7 @@ public class ActivityModule {
     }
 
     @Provides
-    @Singleton
+    @ActivityScope
     Navigator provideNavigator(ApiServiceProvider apiServiceProvider, FragmentManager fragmentManager) {
         return new Navigator(apiServiceProvider, fragmentManager);
     }
