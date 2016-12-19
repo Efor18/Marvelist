@@ -1,9 +1,9 @@
 
-package com.eolalla.marvelist.network.model;
+package com.eolalla.marvelist.data.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ComicSummary {
+public class EventSummary {
 
     @SerializedName("resourceURI")
     private String resourceURI;
@@ -11,14 +11,14 @@ public class ComicSummary {
     private String name;
 
     /**
-     * @return The path to the individual comic resource.
+     * @return The path to the individual event resource.
      */
     public String getResourceURI() {
         return resourceURI;
     }
 
     /**
-     * @return The canonical name of the comic.
+     * @return The name of the event.
      */
     public String getName() {
         return name;

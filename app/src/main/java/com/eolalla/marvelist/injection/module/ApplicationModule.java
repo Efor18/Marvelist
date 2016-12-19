@@ -1,7 +1,7 @@
 package com.eolalla.marvelist.injection.module;
 
 import com.eolalla.marvelist.MarvelistApplication;
-import com.eolalla.marvelist.network.ApiServiceProvider;
+import com.eolalla.marvelist.data.ApiServiceProvider;
 
 import javax.inject.Singleton;
 

@@ -1,5 +1,5 @@
 
-package com.eolalla.marvelist.network.model;
+package com.eolalla.marvelist.data.model;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -1,7 +1,7 @@
-package com.eolalla.marvelist.network;
+package com.eolalla.marvelist.data;
 
 
-import com.eolalla.marvelist.network.model.CharacterDataWrapper;
+import com.eolalla.marvelist.data.model.CharacterDataWrapper;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

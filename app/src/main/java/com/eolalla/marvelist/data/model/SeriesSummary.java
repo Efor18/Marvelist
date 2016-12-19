@@ -1,9 +1,9 @@
 
-package com.eolalla.marvelist.network.model;
+package com.eolalla.marvelist.data.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class EventSummary {
+public class SeriesSummary {
 
     @SerializedName("resourceURI")
     private String resourceURI;
@@ -11,14 +11,14 @@ public class EventSummary {
     private String name;
 
     /**
-     * @return The path to the individual event resource.
+     * @return The path to the individual series resource.
      */
     public String getResourceURI() {
         return resourceURI;
     }
 
     /**
-     * @return The name of the event.
+     * @return The canonical name of the series.
      */
     public String getName() {
         return name;

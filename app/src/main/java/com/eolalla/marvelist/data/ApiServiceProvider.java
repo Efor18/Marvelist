@@ -1,7 +1,7 @@
-package com.eolalla.marvelist.network;
+package com.eolalla.marvelist.data;
 
 import com.eolalla.marvelist.BuildConfig;
-import com.eolalla.marvelist.Utils.MD5Digest;
+import com.eolalla.marvelist.utils.MD5Digest;
 
 import java.io.IOException;
 import java.util.Date;

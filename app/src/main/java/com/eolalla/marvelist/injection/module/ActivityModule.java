@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 
 import com.eolalla.marvelist.Navigator;
 import com.eolalla.marvelist.injection.scope.ActivityScope;
-import com.eolalla.marvelist.network.ApiServiceProvider;
+import com.eolalla.marvelist.data.ApiServiceProvider;
 
 import dagger.Module;
 import dagger.Provides;

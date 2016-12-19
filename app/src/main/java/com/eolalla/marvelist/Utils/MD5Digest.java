@@ -1,4 +1,4 @@
-package com.eolalla.marvelist.Utils;
+package com.eolalla.marvelist.utils;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

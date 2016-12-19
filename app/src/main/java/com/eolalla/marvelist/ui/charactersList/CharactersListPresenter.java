@@ -1,8 +1,11 @@
-package com.eolalla.marvelist.characters;
+package com.eolalla.marvelist.ui.charactersList;
 
-import com.eolalla.marvelist.network.ApiServiceProvider;
-import com.eolalla.marvelist.network.model.Character;
-import com.eolalla.marvelist.network.model.CharacterDataWrapper;
+import android.view.View;
+
+import com.eolalla.marvelist.Navigator;
+import com.eolalla.marvelist.data.ApiServiceProvider;
+import com.eolalla.marvelist.data.model.Character;
+import com.eolalla.marvelist.data.model.CharacterDataWrapper;
 
 import java.util.List;
 
@@ -17,17 +20,19 @@ import timber.log.Timber;
  * Created by Ernesto Olalla on 2/11/16.
  */
 
-public class CharactersPresenter implements CharactersContract.Presenter {
+public class CharactersListPresenter implements CharactersListContract.Presenter {
 
     @Inject
     ApiServiceProvider apiServiceProvider;
 
-    private CharactersContract.View view;
+    private CharactersListContract.View view;
+    private final Navigator navigator;
     private int offset = 0;
 
-    public CharactersPresenter(CharactersContract.View charactersView, ApiServiceProvider apiServiceProvider) {
+    public CharactersListPresenter(CharactersListContract.View charactersView, ApiServiceProvider apiServiceProvider, Navigator navigator) {
         this.view = charactersView;
         this.apiServiceProvider = apiServiceProvider;
+        this.navigator = navigator;
         view.setPresenter(this);
     }
 
@@ -55,5 +60,10 @@ public class CharactersPresenter implements CharactersContract.Presenter {
                 Timber.e(t, "Error: " + t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void loadCharacterDetails(Character character, View sharedView) {
+        navigator.loadCharacterDetails(character, sharedView);
     }
 }
